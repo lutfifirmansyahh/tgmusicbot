@@ -16,8 +16,8 @@ MUSIC_CHATS = [
 MUSIC_USERS = [1234567890]
 MUSIC_DELAY_DELETE_INFORM = 10
 MUSIC_INFORM_AVAILABILITY = (
-    "This is YouTube Music Downloader Bot"
-    "For The Members of @LiveDjMusic Group🔥"
+    "Gw adalah Bot YouTube Music Downloader"
+    "Untuk Member Di Group🛠️"
 )
 MUSIC_MAX_LENGTH = 10800
 
@@ -83,28 +83,26 @@ main_filter = (
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 Hi {message.from_user.first_name} !!</b>
+        f"""<b>👋🏻 HAI {message.from_user.first_name} JANCOK !!</b>
 
-✣ My Name Is **𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝** 🎵 
+✣ Nama Gw **BAPING MUSIC ROBOT** 🎵 
 
-✣ I Only Works In **Lɪᴠᴇ DJ Mᴜꜱɪᴄ** 🎧 
+✣ Gw bisa **Download Music** Di **YouTube!**
 
-✣ I Can **Download Music** From **YouTube!**
-
-✣ Send Me Any **YouTube Link** To **Play** In Group!__""",
+✣ Kirim gw link **YouTube Link** Untuk **Play** Di VCG Grup!__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚡️ Join Our Group ⚡️", url="https://t.me/livedjmusic"
+                        "⚡️ JOIN GROUP ⚡️", url="https://t.me/gcsampah"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Support", url="https://t.me/safothebot"
+                        "💬 SUPPORT CHANNEL", url="https://t.me/channeldregs"
                     ),
                     InlineKeyboardButton(
-                        "Developer 🧑‍💻", url="https://t.me/I_Am_Only_One_1"
+                        "Developer", url="https://t.me/yangtagtolol"
                     )
                 ]
             ]
@@ -113,7 +111,7 @@ async def start_(client: Client, message: Message):
     
 @app.on_message(main_filter & filters.regex("^/ping$"))
 async def ping_pong(_, message):
-    await _reply_and_delete_later(message, "pong😂",
+    await _reply_and_delete_later(message, "pong baping hadir😘",
                                   DELAY_DELETE_INFORM)
 
 
@@ -137,21 +135,21 @@ async def _fetch_and_send_music(message: Message):
         # send a link as a reply to bypass Music category check
         if not message.reply_to_message \
                 and _youtube_video_not_music(info_dict):
-            inform = ("This Video is Not Under Music Category, "
-                      "You Can Resend The Link As Reply "
-                      "To Force Download & Play It !!😁")
+            inform = ("Video ini bukan kategori Musik tod, "
+                      "Untuk Merestart nya Lu langsung aja kirim ulang link lalu reply  "
+                      "Untuk Download & Play Musik !!😁")
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
             return
         if info_dict['duration'] > MUSIC_MAX_LENGTH:
             readable_max_length = str(timedelta(seconds=MUSIC_MAX_LENGTH))
-            inform = ("This Won't Be Downloaded Because Its Audio Length is "
-                      "Longer Than The Limit `{}` Which is Set By The Owner😴"
+            inform = ("Video ini gabisa di Download ajg "
+                      "Durasi kepanjangan kek bokep aja, `{}` Jangan kepanjangan Udah di set sama Ownernya😴"
                       .format(readable_max_length))
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
             return
-        d_status = await message.reply_text("Uploading Music...🔊", quote=True,
+        d_status = await message.reply_text("Lagi Loading nih tunggu...🔊", quote=True,
                                             disable_notification=True)
         ydl.process_info(info_dict)
         audio_file = ydl.prepare_filename(info_dict)
