@@ -17,7 +17,7 @@ MUSIC_USERS = [1234567890]
 MUSIC_DELAY_DELETE_INFORM = 10
 MUSIC_INFORM_AVAILABILITY = (
     "Gw adalah Bot YouTube Music Downloader"
-    "Untuk Member Di Group🛠️"
+    "Berlaku Untuk VCG Group 🛠️"
 )
 MUSIC_MAX_LENGTH = 10800
 
